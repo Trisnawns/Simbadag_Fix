@@ -74,7 +74,13 @@ class Produk extends Controller
 
     public function destroy(string $id)
     {
-        //
+        try{
+            Produk_Model::destroy($id);
+        return redirect()->route('produk.index')->with('success', 'Produk berhasil dihapus.');
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(['database' => 'Terjadi kesalahan pada database: ' . $e->getMessage()]);
+        }
+        
     }
 
 

@@ -1,7 +1,5 @@
-@extends('layouts.app')
 
-@section('content')
-   <section id="section-tambah" class="page-section active">
+<section id="section-tambah" class="page-section active">
     <form action="{{ route ('produk.store') }}" method="post">
     @csrf
               <div class="bg-white rounded-2xl p-6 card-shadow">
@@ -12,15 +10,11 @@
                     <input name="nama" id="input-nama" class="mt-2 w-full border rounded-lg px-3 py-2" placeholder="Masukkan nama produk Contoh: EB001" />
                   </div>
                   <div>
-                    <label class="text-sm text-gray-600 font-medium">Kode Produk</label>
-                    <input name="kode" id="input-kode" class="mt-2 w-full border rounded-lg px-3 py-2" placeholder="Masukkan kode produk" />
-                  </div>
-                  <div>
                     <label class="text-sm text-gray-600 font-medium">Kategori</label>
                     <select name="kategori" id="input-kategori" class="mt-2 w-full border rounded-lg px-3 py-2">
                       <option value="">Pilih Kategori</option>
-                      <option value="Elektronik">Elektronik</option>
-                      <option value="Alat Tulis">Alat Tulis</option>
+                      <option>Elektronik</option>
+                      <option value="alat_tulis">Alat Tulis</option>
                     </select>
                   </div>
                   <div>
@@ -56,4 +50,3 @@
               </div>
               </form>
             </section>
-              @endsection

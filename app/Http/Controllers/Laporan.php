@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Produk_Model;
 
 class Laporan extends Controller
 {
@@ -11,7 +13,8 @@ class Laporan extends Controller
      */
     public function index()
     {
-        return view('laporan.index');
+        $products = Produk_Model::all();
+        return view('Laporan.index', compact('products'));
     }
 
     /**
