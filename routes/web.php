@@ -25,6 +25,15 @@ Route::middleware('auth')->group(function () {
         Route::put('/{id}', [Produk::class, 'update'])->name('update');
         Route::delete('/{id}', [Produk::class, 'destroy'])->name('destroy');
     });
+
+    Route::prefix('users')->name('users.')->group(function () {
+        Route::get('/', [Users::class, 'table'])->name('index');
+        Route::get('/create', [Users::class, 'create'])->name('create');
+        Route::post('/', [Users::class, 'store'])->name('store');
+        Route::get('/{id}/edit', [Users::class, 'edit'])->name('edit');
+        Route::put('/{id}', [Users::class, 'update'])->name('update');
+        Route::delete('/{id}', [Users::class, 'destroy'])->name('destroy');
+    });
 });
 
 Route::middleware('guest')->group(function () {
